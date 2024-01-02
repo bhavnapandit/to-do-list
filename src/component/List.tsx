@@ -1,5 +1,4 @@
 "use client"
-import { prisma } from "@/app/db";
 import React from "react";
 
 type TodoTtemProps = {

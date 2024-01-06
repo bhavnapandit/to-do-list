@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { prisma } from './db';
 import List from '@/component/List';
+import Router, { useRouter } from 'next/navigation';
 
 
 function getTodos() {
@@ -13,20 +14,21 @@ async function toggleTodo(id: string, complete: boolean) {
 
   await prisma.todo.update({ where: { id }, data: { complete } })
 }
-async function deleteData(id:string) {
-  "use server"
-  await prisma.todo.delete({
-        where: {
-         id:id
-        },
-    });
-    
+// async function deleteData(id:string) {
+//   "use server"
+//   await prisma.todo.delete({
+//         where: {
+//          id:id
+//         },
+//     });
+//   // location.reload()
       
-}
+// }
 
 export default async function Home() {
+ 
   const todos = await getTodos()
-  // await prisma.todo.create({data:{title:"Test",complete:false}})
+  
   return (
    <>
    <header className='flex justify-between'>
@@ -44,7 +46,7 @@ export default async function Home() {
   </thead>
   <tbody>
     {todos.map(todo=> (
-      <List key={todo.id} {...todo} toggleTodo={toggleTodo} deleteData={deleteData} />
+      <List key={todo.id} {...todo} toggleTodo={toggleTodo} />
     ))}
   </tbody>
 </table>

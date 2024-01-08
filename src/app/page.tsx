@@ -41,7 +41,6 @@ export default async function Home() {
     <tr>
       <th className="border border-slate-300 px-6 py-3 bg-slate-500 text-left">Title</th>
       <th className="border border-slate-300 px-1 py-3 bg-slate-500 text-left">Status</th>
-      <th className="border border-slate-300 px-1 py-3 bg-slate-500 text-left">Action</th>
     </tr>
   </thead>
   <tbody>

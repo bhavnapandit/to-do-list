@@ -15,6 +15,8 @@ async function createTodo(data: FormData) {
   redirect("/")
 }
 
+//main page
+
 export default function Page() {
   return (
     <>
